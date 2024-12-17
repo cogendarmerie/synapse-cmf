@@ -5,10 +5,10 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
-    database_host: 127.0.0.1
-    database_port: null
-    database_user: root
-    database_password: null
-    database_name: synapse
+    database_host: db
+    database_port: 3306
+    database_user: symfony
+    database_password: symfony
+    database_name: symfony
     admin_host: demo.admin-synapse.dev
     front_host: demo.synapse.dev
