@@ -1,5 +1,5 @@
 # Utiliser une image officielle PHP comme image de base
-FROM php:7.1-apache
+FROM php:7.2-apache
 
 # Installer les extensions PHP nécessaires
 RUN docker-php-ext-install pdo pdo_mysql
