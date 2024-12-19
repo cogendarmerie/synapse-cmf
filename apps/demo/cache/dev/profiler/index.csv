@@ -1,0 +1,15 @@
+60eaa1,172.20.0.1,GET,https://localhost/demo_dev.php/fr/pages/,1734619790,bd2cf4,200
+bd2cf4,172.20.0.1,GET,https://localhost/demo_dev.php/fr/pages/,1734619790,,404
+019fa2,172.20.0.1,GET,https://localhost/demo_dev.php/fr/pages/,1734619805,b58e22,200
+b58e22,172.20.0.1,GET,https://localhost/demo_dev.php/fr/pages/,1734619805,,404
+83bf6f,172.20.0.1,GET,http://admin.localhost/demo_dev.php/,1734619812,,301
+29d3a2,172.20.0.1,GET,http://admin.localhost/demo_dev.php/fr/pages,1734619812,,301
+a9fffd,172.20.0.1,GET,http://admin.localhost/demo_dev.php/fr/pages/,1734619812,,200
+883830,172.20.0.1,GET,https://localhost/demo_dev.php/fr/pages/coucou,1734619819,1a72d6,200
+1a72d6,172.20.0.1,GET,https://localhost/demo_dev.php/fr/pages/coucou,1734619819,,404
+e57115,172.20.0.1,GET,http://localhost/demo_dev.php/fr/coucou,1734619826,,200
+2ddc8b,172.20.0.1,GET,https://localhost/demo_dev.php/fr,1734619850,22e58f,200
+22e58f,172.20.0.1,GET,https://localhost/demo_dev.php/fr,1734619850,,404
+1576b7,172.20.0.1,GET,https://localhost/demo_dev.php/fr/,1734619854,b4ea8d,200
+b4ea8d,172.20.0.1,GET,https://localhost/demo_dev.php/fr/,1734619854,,404
+01d3fe,172.20.0.1,GET,https://localhost/demo_dev.php/fr/coucou,1734619859,,200

@@ -10,7 +10,7 @@ synapse_page_admin:
     options:
         synapse_theme:
             expression:
-                bootstrap: "host == 'demo.admin-synapse.dev'"
+                bootstrap: "host == 'admin.localhost'"
 
 default_admin:
     path: /
