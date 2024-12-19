@@ -1,3 +1,0 @@
-1766177203
-Synapse.Cmf.Framework.Theme.Component.Entity.Component
-O:49:"Symfony\Component\Validator\Mapping\ClassMetadata":10:{s:11:"constraints";a:0:{}s:18:"constraintsByGroup";a:0:{}s:17:"traversalStrategy";i:1;s:7:"getters";a:0:{}s:13:"groupSequence";O:53:"Symfony\Component\Validator\Constraints\GroupSequence":2:{s:6:"groups";a:3:{i:0;s:9:"Component";i:1;s:8:"creation";i:2;s:7:"edition";}s:13:"cascadedGroup";N;}s:21:"groupSequenceProvider";b:0;s:7:"members";a:0:{}s:4:"name";s:54:"Synapse\Cmf\Framework\Theme\Component\Entity\Component";s:10:"properties";a:0:{}s:12:"defaultGroup";s:9:"Component";}
