@@ -11,7 +11,11 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libzip-dev \
     libpng-dev \
+    libssl-dev \
     && docker-php-ext-install intl zip
+
+# Activer les modules Apache nécessaires pour SSL
+RUN a2enmod ssl rewrite
 
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /var/www/html
@@ -25,10 +29,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Installer les dépendances Composer
 RUN composer install
 
-# Exposer le port 80
-EXPOSE 80
+# Exposer les ports 80 et 443
+EXPOSE 80 443
 
-# Définir le fichier d'entrée pour Apache
+# Copier les fichiers de certificat SSL
+COPY .docker/apache/ssl/server.crt /etc/ssl/certs/
+COPY .docker/apache/ssl/server.key /etc/ssl/private/
+
+# Définir le fichier de configuration pour Apache (HTTP et HTTPS)
 COPY .docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Démarrer Apache
