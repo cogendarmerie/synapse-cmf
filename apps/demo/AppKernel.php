@@ -42,27 +42,27 @@ class AppKernel extends Kernel
         return __DIR__;
     }
 
-    /**
-     * @see Symfony\Component\HttpKernel\KernelInterface::getCacheDir()
-     */
-    public function getCacheDir()
-    {
-        return in_array($this->environment, array('dev', 'test')) && is_writable('/dev/shm') ?
-            '/dev/shm/synapse/demo/cache/'.$this->getEnvironment() :
-            $this->getRootDir().'/../../var/cache/synapse/demo/'.$this->getEnvironment()
-        ;
-    }
-
-    /**
-     * @see Symfony\Component\HttpKernel\KernelInterface::getLogDir()
-     */
-    public function getLogDir()
-    {
-        return in_array($this->environment, array('dev', 'test')) && is_writable('/dev/shm') ?
-            '/dev/shm/synapse/demo/logs' :
-            $this->getRootDir().'/../../var/logs/synapse/demo'
-        ;
-    }
+//    /**
+//     * @see Symfony\Component\HttpKernel\KernelInterface::getCacheDir()
+//     */
+//    public function getCacheDir()
+//    {
+//        return in_array($this->environment, array('dev', 'test')) && is_writable('/dev/shm') ?
+//            '/dev/shm/synapse/demo/cache/'.$this->getEnvironment() :
+//            $this->getRootDir().'/../../var/cache/synapse/demo/'.$this->getEnvironment()
+//        ;
+//    }
+//
+//    /**
+//     * @see Symfony\Component\HttpKernel\KernelInterface::getLogDir()
+//     */
+//    public function getLogDir()
+//    {
+//        return in_array($this->environment, array('dev', 'test')) && is_writable('/dev/shm') ?
+//            '/dev/shm/synapse/demo/logs' :
+//            $this->getRootDir().'/../../var/logs/synapse/demo'
+//        ;
+//    }
 
     /**
      * @{inherit_doc}
