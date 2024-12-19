@@ -10,5 +10,5 @@ parameters:
     database_user: symfony
     database_password: symfony
     database_name: symfony
-    admin_host: demo.admin-synapse.dev
+    admin_host: admin.localhost
     front_host: localhost
