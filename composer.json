@@ -1,80 +1,36 @@
 {
-    "name": "synapse-cmf/synapse-cmf",
-    "type": "framework",
-    "description": "Full version of Synapse CMF, main development repository",
-    "keywords": ["content management", "framework", "symfony", "cmf"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Quentin Cerny",
-            "email": "quentin.cerny@link-value.fr",
-            "homepage": "https://github.com/Nyxis",
-            "role": "Architect & Developer"
-        },
-        {
-            "name": "Link Value",
-            "email": "contact@link-value.fr",
-            "homepage": "http://www.link-value.fr"
-        }
-    ],
-    "autoload": {
-        "psr-4": { "": "src" },
-        "classmap": [
-            "apps/demo/AppKernel.php", "apps/demo/AppCache.php"
-        ]
-    },
     "require": {
-        "php": ">=7.4",
+        "php": "^7.4",
         "symfony/symfony": "5.4.*",
-        "symfony/swiftmailer-bundle": "^3.5",
-        "symfony/monolog-bundle": "^3.7",
         "doctrine/orm": "^2.7",
-        "doctrine/doctrine-bundle": "^2.1",
-        "symfony/cache": "^5.4",
-        "doctrine/doctrine-migrations-bundle": "^2.2",
-        "stof/doctrine-extensions-bundle": "^1.4",
         "sensio/framework-extra-bundle": "^5.6",
-        "incenteev/composer-parameter-handler": "^2.1",
-        "imagine/imagine": "^0.7"
+        "twig/twig": "^3.0",
+        "symfony/swiftmailer-bundle": "^3.5",
+        "sensio/distribution-bundle": "^5.0"
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.0",
-        "symfony/phpunit-bridge": "^5.4",
-        "phpunit/phpunit": "^8.0",
-        "doctrine/doctrine-fixtures-bundle": "^3.3"
+        "phpunit/phpunit": "^8.0"
     },
     "scripts": {
-        "setup-bootstrap": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
-        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "extra": {
-        "symfony-app-dir": "apps",
-        "symfony-bin-dir": "bin",
-        "symfony-var-dir": "var",
-        "symfony-web-dir": "web",
-        "symfony-tests-dir": "tests",
-        "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "apps/demo/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "1.1-dev"
         }
     }
 }
