@@ -3,13 +3,21 @@
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Debug\Debug;
+use Symfony\Component\ErrorHandler\Debug;
+use Symfony\Component\Dotenv\Dotenv;
+
+require dirname(__DIR__).'/vendor/autoload.php';
 
 // if you don't want to setup permissions the proper way, just uncomment the following PHP line
 // read http://symfony.com/doc/current/book/installation.html#configuration-and-setup for more information
-//umask(0000);
+// umask(0000);
 
 set_time_limit(0);
+
+// Charger les variables d'environnement
+if (file_exists(dirname(__DIR__).'/.env')) {
+    (new Dotenv())->load(dirname(__DIR__).'/.env');
+}
 
 /**
  * @var Composer\Autoload\ClassLoader $loader
@@ -23,6 +31,9 @@ $debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(['--no-d
 if ($debug) {
     Debug::enable();
 }
+
+// Inclure la classe AppKernel
+require __DIR__.'/../apps/demo/AppKernel.php';
 
 $kernel = new AppKernel($env, $debug);
 $application = new Application($kernel);

@@ -32,12 +32,21 @@ RUN git config --global --add safe.directory /var/www/html
 # Supprimer le cache Composer et les dépendances existantes
 RUN rm -rf vendor composer.lock && composer clear-cache
 
+# Copier les fichiers composer.lock et composer.json
+COPY composer.lock composer.json ./
+
 # Installer les dépendances Composer
-RUN #composer install --no-scripts --no-dev --prefer-dist
 RUN composer install --no-scripts --prefer-dist --no-dev
 
+# Ajouter une commande pour créer le fichier bin/console_demo si nécessaire
+RUN if [ ! -f bin/console_demo ]; then php bin/console_demo; fi
+
+# Nettoyer et réchauffer le cache Symfony pour l'environnement de développement
+RUN php bin/console_demo cache:clear --env=dev
+RUN php bin/console_demo cache:warmup --env=dev
+
 # Vérifier la présence de vendor/autoload.php
-RUN if [ ! -f vendor/autoload.php ]; then echo "vendor/autoload.php is missing"; exit 1; fi
+RUN ls -l vendor && if [ ! -f vendor/autoload.php ]; then echo "vendor/autoload.php is missing"; exit 1; fi
 
 # Exposer les ports 80 et 443
 EXPOSE 80 443
@@ -48,6 +57,9 @@ COPY .docker/apache/ssl/server.key /etc/ssl/private/
 
 # Définir le fichier de configuration pour Apache (HTTP et HTTPS)
 COPY .docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Définir les permissions correctes pour le répertoire de travail
+RUN chown -R www-data:www-data /var/www/html
 
 # Démarrer Apache
 CMD ["apache2-foreground"]
