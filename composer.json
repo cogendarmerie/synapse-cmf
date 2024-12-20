@@ -1,7 +1,7 @@
 {
     "name": "synapse-cmf/synapse-cmf",
     "type": "framework",
-    "description": "Full version of Synapse CMF, main developpement repository",
+    "description": "Full version of Synapse CMF, main development repository",
     "keywords": ["content management", "framework", "symfony", "cmf"],
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "name": "Quentin Cerny",
             "email": "quentin.cerny@link-value.fr",
             "homepage": "https://github.com/Nyxis",
-            "role": "Architect & Developper"
+            "role": "Architect & Developer"
         },
         {
             "name": "Link Value",
@@ -24,7 +24,7 @@
         ]
     },
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "symfony/symfony": "5.4.*",
         "symfony/swiftmailer-bundle": "^3.5",
         "symfony/monolog-bundle": "^3.7",
@@ -34,7 +34,6 @@
         "doctrine/doctrine-migrations-bundle": "^2.2",
         "stof/doctrine-extensions-bundle": "^1.4",
         "sensio/framework-extra-bundle": "^5.6",
-        "majora/framework-extra-bundle": "v1.5.x-dev",
         "incenteev/composer-parameter-handler": "^2.1",
         "imagine/imagine": "^0.7"
     },
@@ -42,8 +41,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^5.4",
         "phpunit/phpunit": "^8.0",
-        "doctrine/doctrine-fixtures-bundle": "^3.3",
-        "majora/generator-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "^3.3"
     },
     "scripts": {
         "setup-bootstrap": [

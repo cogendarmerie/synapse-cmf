@@ -1,5 +1,5 @@
 # Utiliser une image officielle PHP comme image de base
-FROM php:7.2-apache
+FROM php:7.4-apache
 
 # Installer les extensions PHP nécessaires
 RUN docker-php-ext-install pdo pdo_mysql
@@ -26,8 +26,17 @@ COPY . .
 # Installer Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Configurer Git pour marquer le répertoire comme sûr
+RUN git config --global --add safe.directory /var/www/html
+
+# Supprimer le cache Composer et les dépendances existantes
+RUN rm -rf vendor composer.lock && composer clear-cache
+
 # Installer les dépendances Composer
-RUN composer install
+RUN composer install --no-scripts --no-dev --prefer-dist
+
+# Vérifier la présence de vendor/autoload.php
+RUN if [ ! -f vendor/autoload.php ]; then echo "vendor/autoload.php is missing"; exit 1; fi
 
 # Exposer les ports 80 et 443
 EXPOSE 80 443
