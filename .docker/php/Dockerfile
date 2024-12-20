@@ -33,7 +33,8 @@ RUN git config --global --add safe.directory /var/www/html
 RUN rm -rf vendor composer.lock && composer clear-cache
 
 # Installer les dépendances Composer
-RUN composer install --no-scripts --no-dev --prefer-dist
+RUN #composer install --no-scripts --no-dev --prefer-dist
+RUN composer install --no-scripts --prefer-dist --no-dev
 
 # Vérifier la présence de vendor/autoload.php
 RUN if [ ! -f vendor/autoload.php ]; then echo "vendor/autoload.php is missing"; exit 1; fi
