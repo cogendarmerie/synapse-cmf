@@ -33,7 +33,8 @@ RUN git config --global --add safe.directory /var/www/html
 RUN rm -rf vendor composer.lock && composer clear-cache
 
 # Copier les fichiers composer.lock et composer.json
-COPY composer.lock composer.json ./
+#COPY composer.lock composer.json ./
+COPY composer.json ./
 
 # Installer les dépendances Composer
 RUN composer install --no-scripts --prefer-dist --no-dev
